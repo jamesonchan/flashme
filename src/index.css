@@ -9,3 +9,12 @@ body {
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+@layer components{
+  .pin_button{
+    @apply bg-red-400 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outline-none
+  }
+  .createPin_input{
+    @apply outline-none text-base sm:text-lg border-b-2 border-gray-200 p-2
+  }
+}

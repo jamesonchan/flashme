@@ -7,17 +7,14 @@ import { client } from "../client";
 import logo3 from "../assets/logo3.png";
 import Pins from "./Pins";
 import { userQuery } from "../utils/data";
+import { fetchUser } from "../utils/fetchUser";
 
 function Home() {
   const [toggleSidebar, setToggleSidebar] = useState(false);
   const [user, setUser] = useState(null);
   const scrollRef = useRef(null);
-
-  const userInfo =
-    localStorage.getItem("user") !== "undefined"
-      ? JSON.parse(localStorage.getItem("user"))
-      : localStorage.clear();
-
+  const userInfo = fetchUser();
+  
   useEffect(() => {
     const query = userQuery(userInfo?.googleId);
 
@@ -46,7 +43,11 @@ function Home() {
             <img src={logo3} alt="logo" className="w-36" />
           </Link>
           <Link to={`user-profile/${user?._id}`}>
-            <img src={user?.image} alt="user_profile" className="w-24 rounded-lg" />
+            <img
+              src={user?.image}
+              alt="user_profile"
+              className="w-24 rounded-lg"
+            />
           </Link>
         </div>
         {toggleSidebar && (

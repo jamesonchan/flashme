@@ -31,8 +31,13 @@ function Feed() {
   if (loading)
     return <Spinner message="we are adding new ideas to your feed!" />;
 
+  if(!pins?.length) return <h2>No pins...</h2>
  
-  return <div>Feed</div>;
+  return (
+    <div>
+      {pins && <MasonryLayout pins={pins}/>}
+    </div>
+  )
 }
 
 export default Feed;
