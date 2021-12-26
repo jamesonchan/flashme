@@ -14,7 +14,7 @@ function Pin({ pin: { postedBy, image, _id, destination, save } }) {
   const navigate = useNavigate();
 
   const alreadySaved = !!save?.filter(
-    (item) => item.postedBy._id === user?.googleId
+    (item) => item?.postedBy?._id === user?.googleId
   )?.length;
 
   const savePin = (id) => {
